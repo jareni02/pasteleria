@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>holas</title>
+
+</head>
+<body>
+    <center><h1 style="color: rgb(173, 44, 156);">pasteles</h1></center>
+    <div style="background-color: rgb(114, 37, 97);" data-role="header">
+            <div data-role="navbar">
+            <ul>
+                <li><a href="#" class="ui-btn-active">Patel</a></li>
+               
+               
+            </ul>
+                </div>
+        </div>
+        <div data-role="content" style="background-color: rgb(219, 96, 146);">
+            <form  action="/api/products/<%= product.barcode %>" method="POST">
+                
+                <label for="txt_codigo_barras" style="color: rgb(0, 0, 0)">Tipo de pastel:</label>
+                <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Tipo de pastel" 
+                value="<%= product.barcode %>">
+                
+                <label for="txt_description" style="color: rgb(0, 0, 0)">Sabor:</label>
+                    <input type="text" name="description" id="txt_description" placeholder="Sabor" 
+                    value="<%= product.description %>">
+
+                    <label for="txt_brand" style="color: rgb(0, 0, 0)">Color:</label>
+                    <input type="text" name="brand" id="txt_brand" placeholder="color" 
+                    value="<%= product.brand %>">
+
+                    <label for="txt_price" style="color: rgb(0, 0, 0)">Precio:</label>
+                    <input type="text" name="price" id="txt_price" placeholder="Precio" 
+                    value="<%= product.price %>">
+
+                    <label for="txt_cost" style="color: rgb(0, 0, 0)">Costo:</label>
+                    <input type="text" name="cost" id="txt_cost" placeholder="Costo" 
+                    value="<%= product.cost %>">
+
+                    <label for="txt_stock" style="color: rgb(0, 0, 0)">Existencias</label>
+                    <input type="text" name="stock" id="txt_stock" placeholder="Existencias" 
+                    value="<%= product.stock %>">
+
+
+                    <label for="flip-2" style="color: rgb(0, 0, 0)">Activo</label>
+                    <select name="status" id="flip-2" data-role="slider">
+            <option value="0" <%= product.status=0 ? "selected" : "" %> >No</option>
+            <option value="1" <%= product.status=1 ? "selected" : "" %> >Si</option>
+            </select>
+                </select>
+
+
+                <label for="submit-6" style="color: rgb(0, 0, 0)">Enviar</label>
+                    <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all 
+                    ui-mini" style="color: rgb(26, 16, 70);">Guardar</button>
+                    <a href="/api/products/delete/<%= product.barcode %>" class="ui-btn">Eliminar</a>
+            </form>
+    </div>
+        <div data-role="footer " >
+            <center><h5 style="color: rgba(136, 63, 114, 0.342);"></h5></center>
+
+        </div>
+</body>
+</html>
